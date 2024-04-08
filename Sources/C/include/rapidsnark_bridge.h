@@ -1,6 +1,6 @@
 //
 //  rapidsnark_bridge.h
-//  
+//
 //
 //  Created by Yaroslav Moria on 04.04.2024.
 //
@@ -11,4 +11,7 @@
 #endif /* rapidsnark_bridge_h */
 
 #include <stddef.h>
+
 #import "RapidsnarkFramework.h"
+
+void __dummy(void);

@@ -1,0 +1,20 @@
+PODS:
+  - rapidsnark (0.1.0):
+    - rapidsnark/rapidsnark (= 0.1.0)
+  - rapidsnark/C (0.1.0)
+  - rapidsnark/rapidsnark (0.1.0):
+    - rapidsnark/C
+
+DEPENDENCIES:
+  - rapidsnark (from `../`)
+
+EXTERNAL SOURCES:
+  rapidsnark:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  rapidsnark: d4c41badf1fa4e1ca5a99aa2161b2b26631fdeb2
+
+PODFILE CHECKSUM: 96331fd92ed9651d0ec43feadad116a15c20e7c7
+
+COCOAPODS: 1.15.2

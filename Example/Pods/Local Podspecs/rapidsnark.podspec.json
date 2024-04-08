@@ -1,0 +1,55 @@
+{
+  "name": "rapidsnark",
+  "version": "0.1.0",
+  "summary": "A short description of rapidsnark.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/5eeman/rapidsnark-ios",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Yaroslav Moria": "morya.yaroslav@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/5eeman/rapidsnark-ios.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "pod_target_xcconfig": {
+    "ONLY_ACTIVE_ARCH": "YES"
+  },
+  "user_target_xcconfig": {
+    "ONLY_ACTIVE_ARCH": "YES"
+  },
+  "static_framework": true,
+  "default_subspecs": "rapidsnark",
+  "subspecs": [
+    {
+      "name": "C",
+      "source_files": "Sources/C/**/*",
+      "vendored_frameworks": "Libs/Rapidsnark.xcframework",
+      "ios": {
+        "vendored_frameworks": "Libs/Rapidsnark.xcframework"
+      }
+    },
+    {
+      "name": "rapidsnark",
+      "source_files": "Sources/rapidsnark/**/*",
+      "dependencies": {
+        "rapidsnark/C": [
+
+        ]
+      },
+      "ios": {
+        "dependencies": {
+          "rapidsnark/C": [
+
+          ]
+        }
+      }
+    }
+  ]
+}

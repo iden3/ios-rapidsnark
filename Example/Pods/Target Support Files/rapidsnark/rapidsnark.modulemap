@@ -1,0 +1,6 @@
+framework module rapidsnark {
+  umbrella header "rapidsnark-umbrella.h"
+
+  export *
+  module * { export * }
+}

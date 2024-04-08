@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '12.0'
+
+target 'rapidsnark_Example' do
+  pod 'rapidsnark', :path => '../'
+
+  target 'rapidsnark_Tests' do
+    inherit! :search_paths
+
+
+  end
+end

@@ -1,12 +1,13 @@
-import C
-import Foundation.NSString
+#if canImport(C)
+    import C
+#endif
 
-let DEFAULT_PROOF_BUFFER_SIZE = 1024;
-let DEFAULT_ERROR_BUFFER_SIZE = 256;
+import Darwin.C.string
 
-let empty: NSString = "";
+public let DEFAULT_PROOF_BUFFER_SIZE = 1024;
+public let DEFAULT_ERROR_BUFFER_SIZE = 256;
 
-func groth16Prove(
+public func groth16Prove(
     zkey: String,
     witness: String,
     proofBufferSize: Int = DEFAULT_PROOF_BUFFER_SIZE,
@@ -15,23 +16,23 @@ func groth16Prove(
 ) throws -> (proof: String, pub_signals: String) {
     let zkeyBuf = zkey.toBuffer()
     let witnessBuf = witness.toBuffer()
-    
+
     var public_buffer_size : Int;
     if let publicBufferSize {
         public_buffer_size = publicBufferSize;
     } else {
         public_buffer_size = try! groth16PublicSizeForZkeyBuf(zkey: zkey, errorBufferSize: errorBufferSize);
     }
-    
+
     var proof_buffer_size = UInt(proofBufferSize);
     var proofBuffer = Array<CChar>(repeating: 0, count: proofBufferSize);
-    
+
     var public_buffer_size_uint = UInt(public_buffer_size)
     var publicBuffer = Array<CChar>(repeating: 0, count: public_buffer_size)
-    
+
     let error_buffer_size = UInt(errorBufferSize)
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
-    
+
     let statusCode = groth16_prover(
         zkeyBuf, UInt(zkey.count),
         witnessBuf, UInt(witness.count),
@@ -39,16 +40,16 @@ func groth16Prove(
         &publicBuffer, &public_buffer_size_uint,
         &errorMessageBuffer, error_buffer_size
     );
-    
+
     if (statusCode == PROVER_OK) {
         let proof = String(cString: proofBuffer)
         let publicSignals = String(cString: publicBuffer)
-        
+
         return (proof, publicSignals)
     }
-    
+
     let error = String(cString: errorMessageBuffer)
-    
+
     if (statusCode == PROVER_ERROR) {
         throw RapidsnarkProverError.error(message: error);
     } else if (statusCode == PROVER_ERROR_SHORT_BUFFER) {
@@ -56,11 +57,11 @@ func groth16Prove(
     } else if (statusCode == PROVER_INVALID_WITNESS_LENGTH) {
         throw RapidsnarkProverError.invalidWitnessLength(message: error);
     }
-    
+
     throw RapidsnarkUnknownStatusError()
 }
 
-func groth16ProveWithZKeyFilePath(
+public func groth16ProveWithZKeyFilePath(
     zkeyPath: String,
     witness: String,
     proofBufferSize: Int = DEFAULT_PROOF_BUFFER_SIZE,
@@ -69,23 +70,23 @@ func groth16ProveWithZKeyFilePath(
 ) throws -> (proof: String, pub_signals: String) {
     let zkeyPathBuf = zkeyPath.toBuffer()
     let witnessBuf = witness.toBuffer()
-    
+
     var public_buffer_size : Int;
     if let publicBufferSize {
         public_buffer_size = publicBufferSize;
     } else {
         public_buffer_size = try! groth16PublicSizeForZkeyFile(zkeyPath: zkeyPath, errorBufferSize: errorBufferSize);
     }
-    
+
     var proof_buffer_size = UInt(proofBufferSize);
     var proofBuffer = Array<CChar>(repeating: 0, count: proofBufferSize);
-    
+
     var public_buffer_size_uint = UInt(public_buffer_size)
     var publicBuffer = Array<CChar>(repeating: 0, count: public_buffer_size)
-    
+
     let error_buffer_size = UInt(errorBufferSize)
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
-    
+
     let statusCode = groth16_prover_zkey_file(
         zkeyPathBuf,
         witnessBuf, UInt(witness.count),
@@ -93,16 +94,16 @@ func groth16ProveWithZKeyFilePath(
         &publicBuffer, &public_buffer_size_uint,
         &errorMessageBuffer, error_buffer_size
     );
-    
+
     if (statusCode == PROVER_OK) {
         let proof = String(cString: proofBuffer)
         let publicSignals = String(cString: publicBuffer)
-        
+
         return (proof, publicSignals)
     }
-    
+
     let error = String(cString: errorMessageBuffer)
-    
+
     if (statusCode == PROVER_ERROR) {
         throw RapidsnarkProverError.error(message: error);
     } else if (statusCode == PROVER_ERROR_SHORT_BUFFER) {
@@ -110,11 +111,11 @@ func groth16ProveWithZKeyFilePath(
     } else if (statusCode == PROVER_INVALID_WITNESS_LENGTH) {
         throw RapidsnarkProverError.invalidWitnessLength(message: error);
     }
-    
+
     throw RapidsnarkUnknownStatusError()
 }
 
-func groth16Verify(
+public func groth16Verify(
     proof: String,
     inputs: String,
     verificationKey: String,
@@ -123,9 +124,9 @@ func groth16Verify(
     let proofBuf = proof.toBuffer()
     let inputsBuf = inputs.toBuffer()
     let verificationKeyBuf = verificationKey.toBuffer()
-    
+
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
-    
+
     let result = groth16_verify(
         proofBuf,
         inputsBuf,
@@ -133,32 +134,32 @@ func groth16Verify(
         &errorMessageBuffer,
         UInt(errorBufferSize)
     );
-    
+
     if (result == VERIFIER_VALID_PROOF) {
         return true;
     }
-    
+
     let error = String(cString: errorMessageBuffer)
-    
+
     if (result == VERIFIER_INVALID_PROOF) {
         throw RapidsnarkVerifierError.invalidProof(message: error)
     } else if (result == VERIFIER_ERROR) {
         throw RapidsnarkVerifierError.error(message: error)
     }
-    
+
     throw RapidsnarkUnknownStatusError()
 }
 
-func groth16PublicSizeForZkeyBuf(
+public func groth16PublicSizeForZkeyBuf(
     zkey: String,
     errorBufferSize: Int = DEFAULT_ERROR_BUFFER_SIZE
 ) throws -> Int {
     let zkeyBuffer = zkey.toBuffer()
-    
+
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
-    
+
     var publicSize = 0
-    
+
     let statusCode = groth16_public_size_for_zkey_buf(
         zkeyBuffer,
         UInt(zkey.count),
@@ -166,7 +167,7 @@ func groth16PublicSizeForZkeyBuf(
         &errorMessageBuffer,
         UInt(errorBufferSize)
     );
-    
+
     if (statusCode == PROVER_OK) {
         return publicSize
     } else {
@@ -175,23 +176,23 @@ func groth16PublicSizeForZkeyBuf(
     }
 }
 
-func groth16PublicSizeForZkeyFile(
+public func groth16PublicSizeForZkeyFile(
     zkeyPath: String,
     errorBufferSize: Int = DEFAULT_ERROR_BUFFER_SIZE
 ) throws -> Int {
     let zkeyPathBuffer = zkeyPath.toBuffer()
-    
+
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
-    
+
     var publicSize = 0
-    
+
     let statusCode = groth16_public_size_for_zkey_file(
         zkeyPathBuffer,
         &publicSize,
         &errorMessageBuffer,
         UInt(errorBufferSize)
     );
-    
+
     if (statusCode == PROVER_OK) {
         return publicSize
     } else {
@@ -212,16 +213,16 @@ extension String {
 public protocol RapidsnarkError : Error {
 }
 
-enum RapidsnarkProverError : RapidsnarkError {
+public enum RapidsnarkProverError : RapidsnarkError {
     case error(message: String)
     case shortBuffer(message: String)
     case invalidWitnessLength(message: String)
 }
 
-enum RapidsnarkVerifierError : RapidsnarkError {
+public enum RapidsnarkVerifierError : RapidsnarkError {
     case error(message: String)
     case invalidProof(message: String)
 }
 
-class RapidsnarkUnknownStatusError : RapidsnarkError {
+public class RapidsnarkUnknownStatusError : RapidsnarkError {
 }

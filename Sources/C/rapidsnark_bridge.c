@@ -7,6 +7,4 @@
 
 #include "rapidsnark_bridge.h"
 
-void __dummy() {
-    
-}
+void __dummy(void) {}
