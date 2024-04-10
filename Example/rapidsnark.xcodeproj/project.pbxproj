@@ -13,6 +13,9 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		8D9235412BC56EE200B05BF1 /* circuit_final.zkey in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235402BC56EE200B05BF1 /* circuit_final.zkey */; };
+		8D9235442BC56EF500B05BF1 /* witness.wtns in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235422BC56EF500B05BF1 /* witness.wtns */; };
+		8D9235452BC56EF500B05BF1 /* verification_key.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235432BC56EF500B05BF1 /* verification_key.json */; };
 		B33479556ECA93BC7700D51F /* Pods_rapidsnark_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A753C822247CC94544145747 /* Pods_rapidsnark_Example.framework */; };
 		EEE2AFE81C3AE89742557FBC /* Pods_rapidsnark_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F39D437746DADFB4102250B /* Pods_rapidsnark_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,9 @@
 		607FACE51AFB9204008FA782 /* rapidsnark_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rapidsnark_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		8D9235402BC56EE200B05BF1 /* circuit_final.zkey */ = {isa = PBXFileReference; lastKnownFileType = file; path = circuit_final.zkey; sourceTree = "<group>"; };
+		8D9235422BC56EF500B05BF1 /* witness.wtns */ = {isa = PBXFileReference; lastKnownFileType = file; path = witness.wtns; sourceTree = "<group>"; };
+		8D9235432BC56EF500B05BF1 /* verification_key.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verification_key.json; sourceTree = "<group>"; };
 		927BBA4BCDCC94C20BA8C102 /* rapidsnark.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = rapidsnark.podspec; path = ../rapidsnark.podspec; sourceTree = "<group>"; };
 		A753C822247CC94544145747 /* Pods_rapidsnark_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rapidsnark_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB106B1B7F5EEE63BF3E4BA /* Pods-rapidsnark_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rapidsnark_Tests.debug.xcconfig"; path = "Target Support Files/Pods-rapidsnark_Tests/Pods-rapidsnark_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				8D9235432BC56EF500B05BF1 /* verification_key.json */,
+				8D9235422BC56EF500B05BF1 /* witness.wtns */,
+				8D9235402BC56EE200B05BF1 /* circuit_final.zkey */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for rapidsnark */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -170,6 +179,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
+				A08CA7223C3D3EE5B9E81202 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,7 +259,10 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				8D9235452BC56EF500B05BF1 /* verification_key.json in Resources */,
+				8D9235442BC56EF500B05BF1 /* witness.wtns in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				8D9235412BC56EE200B05BF1 /* circuit_final.zkey in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +296,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A08CA7223C3D3EE5B9E81202 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rapidsnark_Example/Pods-rapidsnark_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/rapidsnark/rapidsnark.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/rapidsnark.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rapidsnark_Example/Pods-rapidsnark_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C527B62E109261F483BCD788 /* [CP] Check Pods Manifest.lock */ = {

@@ -1,12 +1,12 @@
 {
   "name": "rapidsnark",
   "version": "0.1.0",
-  "summary": "A short description of rapidsnark.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Swift wrapper for the rapidsnark proof generation library.",
+  "description": "This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the\ngeneration of proofs for specified circuits within an iOS environment.",
   "homepage": "https://github.com/5eeman/rapidsnark-ios",
   "license": {
-    "type": "MIT",
-    "file": "LICENSE"
+    "type": "GNU",
+    "file": "COPYING"
   },
   "authors": {
     "Yaroslav Moria": "morya.yaroslav@gmail.com"
@@ -18,13 +18,15 @@
   "platforms": {
     "ios": "12.0"
   },
+  "swift_versions": [
+    "5"
+  ],
   "pod_target_xcconfig": {
     "ONLY_ACTIVE_ARCH": "YES"
   },
   "user_target_xcconfig": {
     "ONLY_ACTIVE_ARCH": "YES"
   },
-  "static_framework": true,
   "default_subspecs": "rapidsnark",
   "subspecs": [
     {
@@ -51,5 +53,6 @@
         }
       }
     }
-  ]
+  ],
+  "swift_version": "5"
 }
