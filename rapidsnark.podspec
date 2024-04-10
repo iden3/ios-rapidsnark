@@ -22,10 +22,10 @@ This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapi
 generation of proofs for specified circuits within an iOS environment.
                        DESC
 
-  s.homepage         = 'https://github.com/5eeman/rapidsnark-ios'
+  s.homepage         = 'https://github.com/iden3/ios-rapidsnark'
   s.license          = { :type => 'GNU', :file => 'COPYING' }
   s.author           = { 'Yaroslav Moria' => 'morya.yaroslav@gmail.com' }
-  s.source           = { :git => 'https://github.com/iden3/rapidsnark-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/iden3/ios-rapidsnark.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '12.0'
 
