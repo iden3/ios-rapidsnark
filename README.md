@@ -113,4 +113,4 @@ Then open the `rapidsnark.xcworkspace` file in XCode and run it on iOS device or
 
 ## License
 
-react-native-rapidsnark is part of the iden3 project 0KIMS association. Please check the [COPYING](./COPYING) file for more details.
+ios-rapidsnark is part of the iden3 project 0KIMS association. Please check the [COPYING](./COPYING) file for more details.
