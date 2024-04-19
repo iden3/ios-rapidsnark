@@ -37,7 +37,7 @@ public func groth16Prove(
     
     var proofBufferSizeUInt = UInt(proofBufferSize)
     var currentPublicBufferSizeUInt = UInt(currentPublicBufferSize)
-    var errorBufferSizeUInt = UInt(errorBufferSize)
+    let errorBufferSizeUInt = UInt(errorBufferSize)
 
     // Call the rapidsnark C++ library function to perform the Groth16 proof
     let statusCode = groth16_prover(
@@ -79,7 +79,7 @@ public func groth16ProveWithZKeyFilePath(
 
     var proofBufferSizeUInt = UInt(proofBufferSize)
     var currentPublicBufferSizeUInt = UInt(currentPublicBufferSize)
-    var errorBufferSizeUInt = UInt(errorBufferSize)
+    let errorBufferSizeUInt = UInt(errorBufferSize)
     
     // Call the rapidsnark C++ library function to perform the Groth16 proof
     let statusCode = groth16_prover_zkey_file(
