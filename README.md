@@ -8,6 +8,7 @@ generation of proofs for specified circuits within an iOS environment.
 ## Platform Support
 
 **iOS**: Compatible with any iOS device with 64 bit architecture.
+
 > Version for emulator built without assembly optimizations, resulting in slower performance.
 
 **macOS**: Not supported yet.
@@ -29,23 +30,19 @@ or add it to your project SPM dependencies in XCode.
 
 ## Usage
 
-
 #### groth16ProveWithZKeyFilePath
 
-Function takes path to .zkey file and witness file (as base64 encoded String) and returns proof and public signals.
+Generates a proof and public signals using a .zkey file path and witness data buffer.
 
 Reads .zkey file directly from filesystem.
-
 
 ```Swift
 import rapidsnark
 
-// ...
+let zkeyPath = "path/to/zkey"
+let witness = Data(/* witness data */)
+let (proof, inputs) = try groth16ProveWithZKeyFilePath(zkeyPath: zkeyPath, witness: witness)
 
-let zkeyPath = "path/to/zkey";
-let wtns = PackageManager.default.contents(atPath: "path/to/wtns")?.base64EncodedString(options: .endLineWithLineFeed);
-
-let (proof, publicSignals) = groth16ProveWithZKeyFilePath(zkeyPath, wtns);
 ```
 
 #### groth16Verify
@@ -53,17 +50,8 @@ let (proof, publicSignals) = groth16ProveWithZKeyFilePath(zkeyPath, wtns);
 Verifies proof and public signals against verification key.
 
 ```Swift
-import rapidsnark
 
-// ...
-
-let zkey = PackageManager.default.contents(atPath: "path/to/zkey")?.base64EncodedString(options: .endLineWithLineFeed);
-let wtns = PackageManager.default.contents(atPath: "path/to/wtns")?.base64EncodedString(options: .endLineWithLineFeed);
-let verificationKey = PackageManager.default.contents(atPath: "path/to/verification_key")?.base64EncodedString(options: .endLineWithLineFeed);
-
-let (proof, publicSignals) = await groth16Prove(zkey, wtns);
-
-let proofValid = groth16Verify(proof, publicSignals, verificationKey);
+let isValid = try groth16Verify(proof: proof, inputs: publicSignals, verificationKey: verificationKey)
 ```
 
 #### groth16Prove
@@ -72,18 +60,16 @@ Function that takes zkey and witness files encoded as base64.
 
 `proof` and `publicSignals` are base64 encoded strings.
 
->Large circuits might cause OOM. Use with caution.
+> Large circuits might cause OOM. Use with caution.
 
 ```Swift
 import rapidsnark
 
 // ...
 
-let zkey = PackageManager.default.contents(atPath: "path/to/zkey")?.base64EncodedString(options: .endLineWithLineFeed);
-let wtns = PackageManager.default.contents(atPath: "path/to/wtns")?.base64EncodedString(options: .endLineWithLineFeed);
-
-let (proof, publicSignals) = await groth16Prove(zkey, wtns);
+let (proof, inputs) = try groth16Prove(zkey: zkeyFile, witness: witness)
 ```
+
 #### groth16PublicSizeForZkeyFile
 
 Calculates public buffer size for specified zkey.
@@ -93,12 +79,12 @@ import rapidsnark
 
 // ...
 
-let publicBufferSize = await groth16PublicSizeForZkeyFile("path/to/zkey");
+let bufferSize = try groth16PublicSizeForZkeyFile(zkeyPath: zkeyPath)
 ```
 
 ### Public buffer size
 
-Both `groth16Prove` and `groth16ProveWithZKeyFilePath` has an optional `proofBufferSize`, `publicBufferSize` and `errorBufferSize`  parameters. 
+Both `groth16Prove` and `groth16ProveWithZKeyFilePath` has an optional `proofBufferSize`, `publicBufferSize` and `errorBufferSize` parameters.
 If `publicBufferSize` is too small it will be calculated automatically by library.
 
 These parameters are used to set the size of the buffers used to store the proof, public signals and error.
