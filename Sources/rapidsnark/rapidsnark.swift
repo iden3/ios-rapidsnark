@@ -8,13 +8,27 @@ import Foundation
 public let defaultProofBufferSize = 1024
 public let defaultErrorBufferSize = 256
 
-// Performs cryptographic proofs using the Groth16 proving scheme
+/**
+ Performs cryptographic proofs using the Groth16 proving scheme
+
+ - Parameters:
+   - zkey: The zkey data used to generate the proof.
+   - witness: The witness data used to generate the proof.
+   - proofBufferSize: The size of the buffer to store the proof. Defaults to a predefined value.
+   - publicBufferSize: The size for the public signal buffer. If not provided, it's calculated dynamically.
+   - errorBufferSize: The size of the buffer for error messages. Defaults to a predefined value.
+
+ - Throws: `RapidsnarkProverError` child classes
+        if the proof generation fails, with the error message indicating the reason for failure.
+
+ - Returns: A tuple containing the generated proof as a string and the public signals as a string.
+*/
 public func groth16Prove(
     zkey: Data,
     witness: Data,
-    proofBufferSize: Int = defaultProofBufferSize, // Optional: Sets the size of the buffer to store the proof, with a default size
-    publicBufferSize: Int? = nil, // Optional: the  size for the public signal buffer, otherwise calculated dynamically
-    errorBufferSize: Int = defaultErrorBufferSize // Optional: the size of the buffer for error messages
+    proofBufferSize: Int = defaultProofBufferSize,
+    publicBufferSize: Int? = nil,
+    errorBufferSize: Int = defaultErrorBufferSize
 ) throws -> (proof: String, publicSignals: String) {
     let zkeyBuf = NSData(data: zkey).bytes
     let witnessBuf = NSData(data: witness).bytes
@@ -24,17 +38,13 @@ public func groth16Prove(
     if let publicBufferSize {
         currentPublicBufferSize = publicBufferSize;
     } else {
-        do{
-            currentPublicBufferSize = try groth16PublicSizeForZkeyBuf(zkey: zkey, errorBufferSize: errorBufferSize);
-        }catch{
-            throw error
-        }
+        currentPublicBufferSize = try groth16PublicSizeForZkeyBuf(zkey: zkey, errorBufferSize: errorBufferSize);
     }
 
     var proofBuffer = Array<CChar>(repeating: 0, count: proofBufferSize);
     var publicBuffer = Array<CChar>(repeating: 0, count: currentPublicBufferSize)
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
-    
+
     var proofBufferSizeUInt = UInt(proofBufferSize)
     var currentPublicBufferSizeUInt = UInt(currentPublicBufferSize)
     let errorBufferSizeUInt = UInt(errorBufferSize)
@@ -55,13 +65,27 @@ public func groth16Prove(
     throw groth16proverStatusCodeErrors(statusCode, message: String(cString: errorMessageBuffer))
 }
 
-// Performs cryptographic proofs using the Groth16 proving scheme
+/**
+ Performs cryptographic proofs using the Groth16 proving scheme.
+
+ - Parameters:
+   - zkeyPath: The path to the .zkey file.
+   - witness: The witness data used to generate the proof.
+   - proofBufferSize: The size of the buffer to store the proof. Defaults to a predefined value.
+   - publicBufferSize: The size for the public signal buffer. If not provided, it's calculated dynamically.
+   - errorBufferSize: The size of the buffer for error messages. Defaults to a predefined value.
+
+ - Throws: `RapidsnarkProverError` child classes
+        if the proof generation fails, with the error message indicating the reason for failure.
+
+ - Returns: A tuple containing the generated proof as a string and the public signals as a string.
+*/
 public func groth16ProveWithZKeyFilePath(
-    zkeyPath: String, // Path to .zkey file
+    zkeyPath: String,
     witness: Data,
-    proofBufferSize: Int = defaultProofBufferSize, // Optional: Sets the size of the buffer to store the proof, with a default size
-    publicBufferSize: Int? = nil, // Optional: the  size for the public signal buffer, otherwise calculated dynamically
-    errorBufferSize: Int = defaultErrorBufferSize // Optional: the size of the buffer for error messages
+    proofBufferSize: Int = defaultProofBufferSize,
+    publicBufferSize: Int? = nil,
+    errorBufferSize: Int = defaultErrorBufferSize
 ) throws -> (proof: String, publicSignals: String) {
     let witnessBuf = NSData(data: witness).bytes
 
@@ -72,7 +96,7 @@ public func groth16ProveWithZKeyFilePath(
     } else {
         currentPublicBufferSize = try groth16PublicSizeForZkeyFile(zkeyPath: zkeyPath, errorBufferSize: errorBufferSize);
     }
-    
+
     var proofBuffer = Array<CChar>(repeating: 0, count: proofBufferSize);
     var publicBuffer = Array<CChar>(repeating: 0, count: currentPublicBufferSize)
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
@@ -80,7 +104,7 @@ public func groth16ProveWithZKeyFilePath(
     var proofBufferSizeUInt = UInt(proofBufferSize)
     var currentPublicBufferSizeUInt = UInt(currentPublicBufferSize)
     let errorBufferSizeUInt = UInt(errorBufferSize)
-    
+
     // Call the rapidsnark C++ library function to perform the Groth16 proof
     let statusCode = groth16_prover_zkey_file(
         zkeyPath,
@@ -97,7 +121,20 @@ public func groth16ProveWithZKeyFilePath(
     throw groth16proverStatusCodeErrors(statusCode, message: String(cString: errorMessageBuffer))
 }
 
-// Verifying proofs using the Groth16 scheme.
+/**
+ Verifying proofs using the Groth16 scheme.
+
+ - Parameters:
+   - proof: The proof data to be verified.
+   - inputs: The input data used for verification.
+   - verificationKey: The verification key data used for verification.
+   - errorBufferSize: The size of the buffer for error messages. Defaults to a predefined value.
+
+ - Throws: `RapidsnarkVerifierError` child classes
+        if the proof verification fails, with the error message indicating the reason for failure.
+
+ - Returns: A boolean value indicating whether the proof is valid (`true`) or not (`false`).
+*/
 public func groth16Verify(
     proof: Data,
     inputs: Data,
@@ -122,10 +159,23 @@ public func groth16Verify(
     if (statusCode == VERIFIER_VALID_PROOF) {
         return true;
     }
-    
+
     throw groth16proverStatusCodeErrors(statusCode, message: String(cString: errorMessageBuffer))
 }
 
+
+/**
+ Calculates the size of the public signal buffer based on the provided zkey file data.
+
+ - Parameters:
+   - zkey: The zkey data used to calculate the public signal buffer size.
+   - errorBufferSize: The size of the buffer for error messages. Defaults to a predefined value.
+
+ - Throws: `RapidsnarkProverError` child classes
+        if the calculation of the public signal buffer size fails, with the error message indicating the reason for failure.
+
+ - Returns: An integer value representing the calculated size of the public signal buffer.
+*/
 public func groth16PublicSizeForZkeyBuf(
     zkey: Data,
     errorBufferSize: Int = defaultErrorBufferSize
@@ -147,13 +197,23 @@ public func groth16PublicSizeForZkeyBuf(
     if (statusCode == PROVER_OK) {
         return size
     }
-    
+
     throw RapidsnarkProverError.error(message: String(cString: errorMessageBuffer))
 }
 
 
-// Determine the necessary buffer size for storing public signals
-// based on a provided .zkey file
+/**
+ Determine the necessary buffer size for storing public signals based on a provided .zkey file
+
+ - Parameters:
+   - zkeyPath: The path to the .zkey file used to calculate the public signal buffer size.
+   - errorBufferSize: The size of the buffer for error messages. Defaults to a predefined value.
+
+ - Throws: `RapidsnarkProverError` child classes
+        if the calculation of the public signal buffer size fails, with the error message indicating the reason for failure.
+
+ - Returns: An integer value representing the calculated size of the public signal buffer.
+*/
 public func groth16PublicSizeForZkeyFile(
     zkeyPath: String,
     errorBufferSize: Int = defaultErrorBufferSize
@@ -172,7 +232,7 @@ public func groth16PublicSizeForZkeyFile(
     if (statusCode == PROVER_OK) {
         return size
     }
-    
+
     throw RapidsnarkProverError.error(message: String(cString: errorMessageBuffer))
 }
 
@@ -211,7 +271,7 @@ public enum RapidsnarkVerifierError : RapidsnarkError {
 
 public class RapidsnarkUnknownStatusError : RapidsnarkError {
     let message: String
-    
+
     init(message: String) {
         self.message = message
     }
