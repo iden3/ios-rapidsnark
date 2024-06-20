@@ -8,7 +8,9 @@ libtool -static -o libs_sim/librapidsnarkmerged.a libs_sim/libfq.a libs_sim/libf
 && \
 xcodebuild -create-xcframework \
 -library libs_ios/librapidsnarkmerged.a \
+-headers headers \
 -library libs_sim/librapidsnarkmerged.a \
+-headers headers \
 -output Rapidsnark.xcframework \
 && \
-cp -rf ./Rapidsnark.xcframework ../ios/Frameworks
+cp -rf ./Rapidsnark.xcframework ../Libs
