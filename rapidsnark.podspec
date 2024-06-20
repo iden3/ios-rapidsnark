@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'rapidsnark'
-  s.version          = '0.0.1-alpha.2'
+  s.version          = '0.0.1-alpha.3'
   s.summary          = 'Swift wrapper for the rapidsnark proof generation library.'
 
 # This description is used to generate tags and improve search results.
