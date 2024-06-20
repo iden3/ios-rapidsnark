@@ -256,21 +256,42 @@ private func groth16proverStatusCodeErrors(_ statusCode: Int32, message: String)
 
 
 public protocol RapidsnarkError : Error {
+    var message: String { get }
 }
 
 public enum RapidsnarkProverError : RapidsnarkError {
     case error(message: String)
     case shortBuffer(message: String)
     case invalidWitnessLength(message: String)
+    
+    public var message: String {
+        switch self {
+        case .error(let message):
+            return message
+        case .shortBuffer(let message):
+            return message
+        case .invalidWitnessLength(let message):
+            return message
+        }
+    }
 }
 
 public enum RapidsnarkVerifierError : RapidsnarkError {
     case error(message: String)
     case invalidProof(message: String)
+    
+    public var message: String {
+        switch self {
+        case .error(let message):
+            return message
+        case .invalidProof(let message):
+            return message
+        }
+    }
 }
 
 public class RapidsnarkUnknownStatusError : RapidsnarkError {
-    let message: String
+    public let message: String
 
     init(message: String) {
         self.message = message
