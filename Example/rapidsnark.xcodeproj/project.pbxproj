@@ -16,6 +16,7 @@
 		8D9235412BC56EE200B05BF1 /* circuit_final.zkey in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235402BC56EE200B05BF1 /* circuit_final.zkey */; };
 		8D9235442BC56EF500B05BF1 /* witness.wtns in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235422BC56EF500B05BF1 /* witness.wtns */; };
 		8D9235452BC56EF500B05BF1 /* verification_key.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235432BC56EF500B05BF1 /* verification_key.json */; };
+		8DEDA6BB2C539EBC00862F04 /* witness_calc.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DEDA6BA2C539EBC00862F04 /* witness_calc.m */; };
 		B33479556ECA93BC7700D51F /* Pods_rapidsnark_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A753C822247CC94544145747 /* Pods_rapidsnark_Example.framework */; };
 		EEE2AFE81C3AE89742557FBC /* Pods_rapidsnark_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F39D437746DADFB4102250B /* Pods_rapidsnark_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -30,10 +31,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8DEDA6C22C57BEC600862F04 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0F2164B4B8EA20B1620A220C /* Pods-rapidsnark_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rapidsnark_Example.release.xcconfig"; path = "Target Support Files/Pods-rapidsnark_Example/Pods-rapidsnark_Example.release.xcconfig"; sourceTree = "<group>"; };
 		0F39D437746DADFB4102250B /* Pods_rapidsnark_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rapidsnark_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4603F60D9C64E5A2CA629060 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		5ED00401D06EC536FD44EE01 /* Pods-rapidsnark_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rapidsnark_Tests.release.xcconfig"; path = "Target Support Files/Pods-rapidsnark_Tests/Pods-rapidsnark_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* rapidsnark_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rapidsnark_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +61,9 @@
 		8D9235402BC56EE200B05BF1 /* circuit_final.zkey */ = {isa = PBXFileReference; lastKnownFileType = file; path = circuit_final.zkey; sourceTree = "<group>"; };
 		8D9235422BC56EF500B05BF1 /* witness.wtns */ = {isa = PBXFileReference; lastKnownFileType = file; path = witness.wtns; sourceTree = "<group>"; };
 		8D9235432BC56EF500B05BF1 /* verification_key.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verification_key.json; sourceTree = "<group>"; };
+		8DEDA6B82C539EA800862F04 /* witness_calc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = witness_calc.h; sourceTree = "<group>"; };
+		8DEDA6B92C539EBB00862F04 /* rapidsnark_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rapidsnark_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		8DEDA6BA2C539EBC00862F04 /* witness_calc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = witness_calc.m; sourceTree = "<group>"; };
 		927BBA4BCDCC94C20BA8C102 /* rapidsnark.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = rapidsnark.podspec; path = ../rapidsnark.podspec; sourceTree = "<group>"; };
 		A753C822247CC94544145747 /* Pods_rapidsnark_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rapidsnark_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB106B1B7F5EEE63BF3E4BA /* Pods-rapidsnark_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rapidsnark_Tests.debug.xcconfig"; path = "Target Support Files/Pods-rapidsnark_Tests/Pods-rapidsnark_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,10 +131,13 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				8DEDA6B82C539EA800862F04 /* witness_calc.h */,
+				8DEDA6BA2C539EBC00862F04 /* witness_calc.m */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				8DEDA6B92C539EBB00862F04 /* rapidsnark_Example-Bridging-Header.h */,
 			);
 			name = "Example for rapidsnark";
 			path = rapidsnark;
@@ -154,7 +173,6 @@
 			children = (
 				927BBA4BCDCC94C20BA8C102 /* rapidsnark.podspec */,
 				F827A23EC7488C84CBB2C386 /* README.md */,
-				4603F60D9C64E5A2CA629060 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -179,7 +197,8 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				A08CA7223C3D3EE5B9E81202 /* [CP] Embed Pods Frameworks */,
+				8DEDA6C22C57BEC600862F04 /* Embed Libraries */,
+				603447A157FC52233E45C654 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,7 +241,7 @@
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 2U6UZ9UZP9;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1540;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -298,7 +317,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A08CA7223C3D3EE5B9E81202 /* [CP] Embed Pods Frameworks */ = {
+		603447A157FC52233E45C654 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -345,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DEDA6BB2C539EBC00862F04 /* witness_calc.m in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -492,13 +512,27 @@
 			baseConfigurationReference = EAF9F874EEF0E33738A95C3D /* Pods-rapidsnark_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2U6UZ9UZP9;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/rapidsnark/rapidsnark.framework/Headers\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/rapidsnark/C/Headers\"",
+					"/Users/moria/development/projects/rapidsnark-ios/Example/rapidsnark",
+				);
 				INFOPLIST_FILE = rapidsnark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/moria/development/projects/rapidsnark-ios/Example",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "rapidsnark/rapidsnark_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -509,13 +543,26 @@
 			baseConfigurationReference = 0F2164B4B8EA20B1620A220C /* Pods-rapidsnark_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2U6UZ9UZP9;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/rapidsnark/rapidsnark.framework/Headers\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/rapidsnark/C/Headers\"",
+					"/Users/moria/development/projects/rapidsnark-ios/Example/rapidsnark",
+				);
 				INFOPLIST_FILE = rapidsnark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/moria/development/projects/rapidsnark-ios/Example",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "rapidsnark/rapidsnark_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

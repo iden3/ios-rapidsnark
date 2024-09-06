@@ -41,11 +41,11 @@
 
 /* Begin PBXFileReference section */
 		0B1CC5558D5F46D78AD249BB36D5CE9D /* rapidsnark-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "rapidsnark-umbrella.h"; sourceTree = "<group>"; };
-		0D3EBEEDB5781BAA504937D0CE54CE9C /* rapidsnark.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = rapidsnark.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0D3EBEEDB5781BAA504937D0CE54CE9C /* rapidsnark.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = rapidsnark.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		1D5899759DF610C2AF6977162817A5D1 /* rapidsnark-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "rapidsnark-prefix.pch"; sourceTree = "<group>"; };
 		1FFFFEB8E9CA0EB9B095451F5E8A8111 /* C-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "C-Bridging-Header.h"; sourceTree = "<group>"; };
 		2EDF728739FE44D99A01A1007D11AD38 /* Pods-rapidsnark_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-rapidsnark_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		3297154E96442E4AF9B3E1BCCA82FD24 /* rapidsnark_bridge.c */ = {isa = PBXFileReference; includeInIndex = 1; name = rapidsnark_bridge.c; path = Sources/C/rapidsnark_bridge.c; sourceTree = "<group>"; };
+		3297154E96442E4AF9B3E1BCCA82FD24 /* rapidsnark_bridge.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = rapidsnark_bridge.c; path = Sources/C/rapidsnark_bridge.c; sourceTree = "<group>"; };
 		3393ACECE2DF5C09AB9A11B1C3ACAF41 /* rapidsnark-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "rapidsnark-xcframeworks.sh"; sourceTree = "<group>"; };
 		568B79C12BD0EBB3CF7CF37C17DACEB8 /* Pods-rapidsnark_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-rapidsnark_Example.release.xcconfig"; sourceTree = "<group>"; };
 		56F740B89351C287F2EA40972DE4BBA6 /* Pods-rapidsnark_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-rapidsnark_Example.modulemap"; sourceTree = "<group>"; };
@@ -62,21 +62,21 @@
 		94EDAAF05D5B9E35186735040941C164 /* rapidsnark-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "rapidsnark-Info.plist"; sourceTree = "<group>"; };
 		9CB6D6DFA7C222ABB045C55F31C39A8A /* Pods-rapidsnark_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-rapidsnark_Tests-Info.plist"; sourceTree = "<group>"; };
 		9CD1D239AE74110D078D41C1D444BB83 /* rapidsnark.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = rapidsnark.swift; path = Sources/rapidsnark/rapidsnark.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A569A10243CAE1F40C87BDEB37AEA6DD /* Pods-rapidsnark_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-rapidsnark_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A6624F195D257917C9DC5513A950CCD4 /* Pods-rapidsnark_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-rapidsnark_Tests-dummy.m"; sourceTree = "<group>"; };
 		AC25AFE96E0A75769DA9985299899A2D /* Pods-rapidsnark_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-rapidsnark_Tests-umbrella.h"; sourceTree = "<group>"; };
 		B8A0BB562FF061F3FFC8098C8D0ED60C /* rapidsnark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = rapidsnark.debug.xcconfig; sourceTree = "<group>"; };
-		B95D4AFC4856E615D8EEC695079A3B38 /* Rapidsnark.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Rapidsnark.xcframework; path = Libs/Rapidsnark.xcframework; sourceTree = "<group>"; };
+		B95D4AFC4856E615D8EEC695079A3B38 /* Rapidsnark.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = Rapidsnark.xcframework; path = Libs/Rapidsnark.xcframework; sourceTree = "<group>"; };
 		BAF36CCA8B685373C065E139387D93D5 /* rapidsnark-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "rapidsnark-dummy.m"; sourceTree = "<group>"; };
 		C228B39DD808FB1161112BC129BAE3A3 /* Pods-rapidsnark_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-rapidsnark_Example"; path = Pods_rapidsnark_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C43D58E0CF2728E7C99EB0E2B8F21759 /* Pods-rapidsnark_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-rapidsnark_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C5A404E75F23017CF4FA6F1FA1869528 /* rapidsnark.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = rapidsnark.modulemap; sourceTree = "<group>"; };
 		CD43A66DA02D309D968DE3798B032584 /* Pods-rapidsnark_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-rapidsnark_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DBCB6FAAEAF31C1C9293C55B59985662 /* Pods-rapidsnark_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-rapidsnark_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		E29CEB80F7252DF46D7F8190BDB238F2 /* COPYING */ = {isa = PBXFileReference; includeInIndex = 1; path = COPYING; sourceTree = "<group>"; };
+		E29CEB80F7252DF46D7F8190BDB238F2 /* COPYING */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		E63A7C92FEF387690050BCAE08EB485A /* Pods-rapidsnark_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-rapidsnark_Tests"; path = Pods_rapidsnark_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB738F80AFF922D4873ADF570EFE968F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		EB738F80AFF922D4873ADF570EFE968F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F2B63BA11319EDB5D68EA4E939729D0A /* Pods-rapidsnark_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-rapidsnark_Tests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -733,8 +733,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

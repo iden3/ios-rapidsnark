@@ -1,8 +1,8 @@
 PODS:
-  - rapidsnark (0.0.1-alpha.3):
-    - rapidsnark/rapidsnark (= 0.0.1-alpha.3)
-  - rapidsnark/C (0.0.1-alpha.3)
-  - rapidsnark/rapidsnark (0.0.1-alpha.3):
+  - rapidsnark (0.0.1-alpha.5):
+    - rapidsnark/rapidsnark (= 0.0.1-alpha.5)
+  - rapidsnark/C (0.0.1-alpha.5)
+  - rapidsnark/rapidsnark (0.0.1-alpha.5):
     - rapidsnark/C
 
 DEPENDENCIES:
@@ -13,7 +13,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  rapidsnark: d7ec571676bc69b2dd27b00e8a20d3d3fb9b023f
+  rapidsnark: 710c019bf8e269e371220a71ebc449487ee04448
 
 PODFILE CHECKSUM: 96331fd92ed9651d0ec43feadad116a15c20e7c7
 
