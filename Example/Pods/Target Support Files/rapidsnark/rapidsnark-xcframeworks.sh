@@ -17,11 +17,11 @@ RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 variant_for_slice()
 {
   case "$1" in
-  "Rapidsnark.xcframework/ios-arm64-simulator")
-    echo "simulator"
-    ;;
-  "Rapidsnark.xcframework/ios-arm64_arm64e")
+  "Rapidsnark.xcframework/ios-arm64")
     echo ""
+    ;;
+  "Rapidsnark.xcframework/ios-arm64_arm64e_x86_64-simulator")
+    echo "simulator"
     ;;
   esac
 }
@@ -29,11 +29,11 @@ variant_for_slice()
 archs_for_slice()
 {
   case "$1" in
-  "Rapidsnark.xcframework/ios-arm64-simulator")
+  "Rapidsnark.xcframework/ios-arm64")
     echo "arm64"
     ;;
-  "Rapidsnark.xcframework/ios-arm64_arm64e")
-    echo "arm64 arm64e"
+  "Rapidsnark.xcframework/ios-arm64_arm64e_x86_64-simulator")
+    echo "arm64 arm64e x86_64"
     ;;
   esac
 }
@@ -117,5 +117,5 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/../../Libs/Rapidsnark.xcframework" "rapidsnark/C" "library" "ios-arm64-simulator" "ios-arm64_arm64e"
+install_xcframework "${PODS_ROOT}/../../Libs/Rapidsnark.xcframework" "rapidsnark/C" "library" "ios-arm64" "ios-arm64_arm64e_x86_64-simulator"
 

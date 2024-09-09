@@ -34,15 +34,9 @@
     {
       "name": "C",
       "source_files": "Sources/C/**/*",
-      "vendored_frameworks": [
-        "Libs/Rapidsnark.xcframework",
-        "Libs/libwitness.xcframework"
-      ],
+      "vendored_frameworks": "Libs/Rapidsnark.xcframework",
       "ios": {
-        "vendored_frameworks": [
-          "Libs/Rapidsnark.xcframework",
-          "Libs/libwitness.xcframework"
-        ]
+        "vendored_frameworks": "Libs/Rapidsnark.xcframework"
       }
     },
     {
