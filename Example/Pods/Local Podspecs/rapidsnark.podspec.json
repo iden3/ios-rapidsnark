@@ -1,6 +1,6 @@
 {
   "name": "rapidsnark",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.5",
   "summary": "Swift wrapper for the rapidsnark proof generation library.",
   "description": "This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the\ngeneration of proofs for specified circuits within an iOS environment.",
   "homepage": "https://github.com/iden3/ios-rapidsnark",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/iden3/ios-rapidsnark.git",
-    "tag": "0.0.1-alpha.3"
+    "tag": "0.0.1-alpha.5"
   },
   "platforms": {
     "ios": "12.0"
