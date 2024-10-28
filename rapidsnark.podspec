@@ -23,7 +23,7 @@ generation of proofs for specified circuits within an iOS environment.
                        DESC
 
   s.homepage         = 'https://github.com/iden3/ios-rapidsnark'
-  s.license          = { :type => 'GNU', :file => 'COPYING' }
+  s.license          = { :type => 'LGPL-3', :file => 'COPYING' }
   s.author           = { 'Yaroslav Moria' => 'morya.yaroslav@gmail.com' }
   s.source           = { :git => 'https://github.com/iden3/ios-rapidsnark.git', :tag => s.version.to_s }
 
