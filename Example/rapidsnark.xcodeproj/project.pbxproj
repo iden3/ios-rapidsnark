@@ -13,9 +13,10 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		8D9235412BC56EE200B05BF1 /* circuit_final.zkey in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235402BC56EE200B05BF1 /* circuit_final.zkey */; };
-		8D9235442BC56EF500B05BF1 /* witness.wtns in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235422BC56EF500B05BF1 /* witness.wtns */; };
-		8D9235452BC56EF500B05BF1 /* verification_key.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235432BC56EF500B05BF1 /* verification_key.json */; };
+		8D9235452BC56EF500B05BF1 /* authV2_verification_key.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D9235432BC56EF500B05BF1 /* authV2_verification_key.json */; };
+		8DBDBC2D2CECEC0E00B1E4E9 /* authV2.wcd in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDBC2B2CECEC0E00B1E4E9 /* authV2.wcd */; };
+		8DBDBC2E2CECEC0E00B1E4E9 /* authV2_inputs.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDBC2C2CECEC0E00B1E4E9 /* authV2_inputs.json */; };
+		8DBDBC302CECEC1500B1E4E9 /* authV2.zkey in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDBC2F2CECEC1500B1E4E9 /* authV2.zkey */; };
 		B33479556ECA93BC7700D51F /* Pods_rapidsnark_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A753C822247CC94544145747 /* Pods_rapidsnark_Example.framework */; };
 		EEE2AFE81C3AE89742557FBC /* Pods_rapidsnark_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F39D437746DADFB4102250B /* Pods_rapidsnark_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -57,9 +58,10 @@
 		607FACE51AFB9204008FA782 /* rapidsnark_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rapidsnark_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		8D9235402BC56EE200B05BF1 /* circuit_final.zkey */ = {isa = PBXFileReference; lastKnownFileType = file; path = circuit_final.zkey; sourceTree = "<group>"; };
-		8D9235422BC56EF500B05BF1 /* witness.wtns */ = {isa = PBXFileReference; lastKnownFileType = file; path = witness.wtns; sourceTree = "<group>"; };
-		8D9235432BC56EF500B05BF1 /* verification_key.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verification_key.json; sourceTree = "<group>"; };
+		8D9235432BC56EF500B05BF1 /* authV2_verification_key.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = authV2_verification_key.json; sourceTree = "<group>"; };
+		8DBDBC2B2CECEC0E00B1E4E9 /* authV2.wcd */ = {isa = PBXFileReference; lastKnownFileType = file; path = authV2.wcd; sourceTree = "<group>"; };
+		8DBDBC2C2CECEC0E00B1E4E9 /* authV2_inputs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = authV2_inputs.json; sourceTree = "<group>"; };
+		8DBDBC2F2CECEC1500B1E4E9 /* authV2.zkey */ = {isa = PBXFileReference; lastKnownFileType = file; path = authV2.zkey; sourceTree = "<group>"; };
 		927BBA4BCDCC94C20BA8C102 /* rapidsnark.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = rapidsnark.podspec; path = ../rapidsnark.podspec; sourceTree = "<group>"; };
 		A753C822247CC94544145747 /* Pods_rapidsnark_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rapidsnark_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB106B1B7F5EEE63BF3E4BA /* Pods-rapidsnark_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rapidsnark_Tests.debug.xcconfig"; path = "Target Support Files/Pods-rapidsnark_Tests/Pods-rapidsnark_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,9 +103,10 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
-				8D9235432BC56EF500B05BF1 /* verification_key.json */,
-				8D9235422BC56EF500B05BF1 /* witness.wtns */,
-				8D9235402BC56EE200B05BF1 /* circuit_final.zkey */,
+				8D9235432BC56EF500B05BF1 /* authV2_verification_key.json */,
+				8DBDBC2B2CECEC0E00B1E4E9 /* authV2.wcd */,
+				8DBDBC2C2CECEC0E00B1E4E9 /* authV2_inputs.json */,
+				8DBDBC2F2CECEC1500B1E4E9 /* authV2.zkey */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for rapidsnark */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -271,10 +274,11 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				8D9235452BC56EF500B05BF1 /* verification_key.json in Resources */,
-				8D9235442BC56EF500B05BF1 /* witness.wtns in Resources */,
+				8DBDBC2D2CECEC0E00B1E4E9 /* authV2.wcd in Resources */,
+				8DBDBC2E2CECEC0E00B1E4E9 /* authV2_inputs.json in Resources */,
+				8DBDBC302CECEC1500B1E4E9 /* authV2.zkey in Resources */,
+				8D9235452BC56EF500B05BF1 /* authV2_verification_key.json in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
-				8D9235412BC56EE200B05BF1 /* circuit_final.zkey in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,10 +321,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-rapidsnark_Example/Pods-rapidsnark_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CircomWitnesscalc/CircomWitnesscalc.framework",
 				"${BUILT_PRODUCTS_DIR}/rapidsnark/rapidsnark.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircomWitnesscalc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/rapidsnark.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

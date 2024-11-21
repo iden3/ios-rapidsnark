@@ -5,7 +5,7 @@
   "description": "This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the\ngeneration of proofs for specified circuits within an iOS environment.",
   "homepage": "https://github.com/iden3/ios-rapidsnark",
   "license": {
-    "type": "GNU",
+    "type": "LGPL-3",
     "file": "COPYING"
   },
   "authors": {
