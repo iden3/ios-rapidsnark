@@ -2,7 +2,7 @@ CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CircomWitnesscalc" "${PODS_CONFIGURATION_BUILD_DIR}/rapidsnark" "${PODS_ROOT}/../../Libs" "${PODS_ROOT}/CircomWitnesscalc/Libs"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CircomWitnesscalc/CircomWitnesscalc.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/rapidsnark/rapidsnark.framework/Headers" "${PODS_XCFRAMEWORKS_BUILD_DIR}/CircomWitnesscalc/C/Headers" "${PODS_XCFRAMEWORKS_BUILD_DIR}/rapidsnark/C/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CircomWitnesscalc/CircomWitnesscalc.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/rapidsnark/rapidsnark.framework/Headers" "${PODS_XCFRAMEWORKS_BUILD_DIR}/CircomWitnesscalc/C/Headers" "${PODS_XCFRAMEWORKS_BUILD_DIR}/rapidsnark/rapidsnarkC/Headers"
 ONLY_ACTIVE_ARCH = YES
 OTHER_LDFLAGS = $(inherited) -framework "CircomWitnesscalc" -framework "rapidsnark"
 PODS_BUILD_DIR = ${BUILD_DIR}

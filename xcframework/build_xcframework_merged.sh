@@ -1,16 +1,18 @@
 # This scripts creates merged library for arm64 only for both sim and ios, and then creates xcframework from it.
 
-rm -rf ./Rapidsnark.xcframework
+rm -rf ../Libs/Rapidsnark.xcframework
 
-libtool -static -o libs_ios/librapidsnarkmerged.a libs_ios/libfq.a libs_ios/libfr.a libs_ios/libgmp.a libs_ios/librapidsnark.a -arch_only arm64 \
+libtool -static -o ios/librapidsnarkmerged.a ios/libfq.a ios/libfr.a ios/libgmp.a ios/librapidsnark.a \
 && \
-libtool -static -o libs_sim/librapidsnarkmerged.a libs_sim/libfq.a libs_sim/libfr.a libs_sim/libgmp.a libs_sim/librapidsnark.a \
+libtool -static -o sim/librapidsnarkmerged.a sim/libfq.a sim/libfr.a sim/libgmp.a sim/librapidsnark.a \
+&& \
+libtool -static -o macos/librapidsnarkmerged.a macos/libfq.a macos/libfr.a macos/libgmp.a macos/librapidsnark.a -arch_only arm64 \
 && \
 xcodebuild -create-xcframework \
--library libs_ios/librapidsnarkmerged.a \
+-library ios/librapidsnarkmerged.a \
 -headers headers \
--library libs_sim/librapidsnarkmerged.a \
+-library sim/librapidsnarkmerged.a \
 -headers headers \
--output Rapidsnark.xcframework \
-&& \
-cp -rf ./Rapidsnark.xcframework ../Libs
+-library macos/librapidsnarkmerged.a \
+-headers headers \
+-output ../Libs/Rapidsnark.xcframework \

@@ -10,7 +10,7 @@
 #endif
 #endif
 
-#import "C-Bridging-Header.h"
+#import "rapidsnarkC-Bridging-Header.h"
 #import "rapidsnark_bridge.h"
 
 FOUNDATION_EXPORT double rapidsnarkVersionNumber;

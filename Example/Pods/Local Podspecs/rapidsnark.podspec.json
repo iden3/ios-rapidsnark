@@ -1,8 +1,8 @@
 {
   "name": "rapidsnark",
-  "version": "0.0.1-alpha.5",
+  "version": "0.0.1-alpha.6",
   "summary": "Swift wrapper for the rapidsnark proof generation library.",
-  "description": "This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the\ngeneration of proofs for specified circuits within an iOS environment.",
+  "description": "This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the\ngeneration of proofs for specified circuits within an iOS and macOS environment.",
   "homepage": "https://github.com/iden3/ios-rapidsnark",
   "license": {
     "type": "LGPL-3",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/iden3/ios-rapidsnark.git",
-    "tag": "0.0.1-alpha.5"
+    "tag": "0.0.1-alpha.6"
   },
   "platforms": {
     "ios": "12.0"
@@ -32,27 +32,17 @@
   "default_subspecs": "rapidsnark",
   "subspecs": [
     {
-      "name": "C",
-      "source_files": "Sources/C/**/*",
-      "vendored_frameworks": "Libs/Rapidsnark.xcframework",
-      "ios": {
-        "vendored_frameworks": "Libs/Rapidsnark.xcframework"
-      }
+      "name": "rapidsnarkC",
+      "source_files": "Sources/rapidsnarkC/**/*",
+      "vendored_frameworks": "Libs/Rapidsnark.xcframework"
     },
     {
       "name": "rapidsnark",
       "source_files": "Sources/rapidsnark/**/*",
       "dependencies": {
-        "rapidsnark/C": [
+        "rapidsnark/rapidsnarkC": [
 
         ]
-      },
-      "ios": {
-        "dependencies": {
-          "rapidsnark/C": [
-
-          ]
-        }
       }
     }
   ],

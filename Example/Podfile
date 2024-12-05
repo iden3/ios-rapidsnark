@@ -9,6 +9,5 @@ target 'rapidsnark_Example' do
   target 'rapidsnark_Tests' do
     inherit! :search_paths
 
-
   end
 end

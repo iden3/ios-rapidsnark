@@ -1,5 +1,5 @@
-#if canImport(C)
-import C
+#if canImport(rapidsnarkC)
+import rapidsnarkC
 #endif
 
 import Darwin.C.string
