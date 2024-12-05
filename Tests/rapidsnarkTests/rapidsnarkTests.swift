@@ -44,35 +44,30 @@ final class rapidsnarkTests: XCTestCase {
     
     func testBufferProofGeneration() throws {
         for circuitId in CircuitId.allCases {
-            let witness = try calculateWitness(
-                inputs: circuitId.inputs,
-                graph: circuitId.wcdGraph
-            )
-            
-            let proof = try groth16Prove(
-                zkey: circuitId.zkey,
-                witness: witness
-            )
-            
-            XCTAssertTrue(!proof.proof.isEmpty, "Proof is empty for " + circuitId.rawValue)
-            XCTAssertTrue(!proof.publicSignals.isEmpty, "Public signals are empty for " + circuitId.rawValue)
-            
-            let valid: Bool
             do {
-                valid = try groth16Verify(
+                let witness = try calculateWitness(
+                    inputs: circuitId.inputs,
+                    graph: circuitId.wcdGraph
+                )
+                
+                let proof = try groth16Prove(
+                    zkey: circuitId.zkey,
+                    witness: witness
+                )
+                
+                XCTAssertTrue(!proof.proof.isEmpty, "Proof is empty for " + circuitId.rawValue)
+                XCTAssertTrue(!proof.publicSignals.isEmpty, "Public signals are empty for " + circuitId.rawValue)
+                
+                let valid = try groth16Verify(
                     proof: proof.proof.data(using: .utf8)!,
                     inputs: proof.publicSignals.data(using: .utf8)!,
                     verificationKey: circuitId.verificationKey
                 )
+                XCTAssertTrue(valid, "Proof is invalid for " + circuitId.rawValue)
             } catch {
                 NSLog("Buffer prover test failed for: " + circuitId.rawValue + " proof and inputs:")
-                NSLog(proof.proof)
-                NSLog(proof.publicSignals)
                 throw error
             }
-            
-            
-            XCTAssertTrue(valid, "Proof is invalid for " + circuitId.rawValue)
             
             NSLog("Buffer prover test passed for: " + circuitId.rawValue)
         }
@@ -80,6 +75,40 @@ final class rapidsnarkTests: XCTestCase {
     
     func testPathProofGeneration() throws {
         for circuitId in CircuitId.allCases {
+            do {
+                let witness = try calculateWitness(
+                    inputs: circuitId.inputs,
+                    graph: circuitId.wcdGraph
+                )
+                
+                let proof = try groth16ProveWithZKeyFilePath(
+                    zkeyPath: circuitId.zkeyPath,
+                    witness: witness
+                )
+                
+                XCTAssertTrue(!proof.proof.isEmpty, "Proof is empty for " + circuitId.rawValue)
+                XCTAssertTrue(!proof.publicSignals.isEmpty, "Public signals are empty for " + circuitId.rawValue)
+                
+                let valid = try groth16Verify(
+                    proof: proof.proof.data(using: .utf8)!,
+                    inputs: proof.publicSignals.data(using: .utf8)!,
+                    verificationKey: circuitId.verificationKey
+                )
+                
+                XCTAssertTrue(valid, "Proof is invalid for " + circuitId.rawValue)
+            } catch {
+                NSLog("Path prover test failed for: " + circuitId.rawValue + " proof and inputs:")
+                throw error
+            }
+            
+            NSLog("Buffer prover test passed for: " + circuitId.rawValue)
+        }
+    }
+    
+    func testSingleCircuit() throws {
+        let circuitId = CircuitId.sigonchain
+        
+        do {
             let witness = try calculateWitness(
                 inputs: circuitId.inputs,
                 graph: circuitId.wcdGraph
@@ -93,51 +122,19 @@ final class rapidsnarkTests: XCTestCase {
             XCTAssertTrue(!proof.proof.isEmpty, "Proof is empty for " + circuitId.rawValue)
             XCTAssertTrue(!proof.publicSignals.isEmpty, "Public signals are empty for " + circuitId.rawValue)
             
-            let valid: Bool
-            do {
-                valid = try groth16Verify(
-                    proof: proof.proof.data(using: .utf8)!,
-                    inputs: proof.publicSignals.data(using: .utf8)!,
-                    verificationKey: circuitId.verificationKey
-                )
-            } catch {
-                NSLog("Path prover test failed for: " + circuitId.rawValue + " proof and inputs:")
-                NSLog(proof.proof)
-                NSLog(proof.publicSignals)
-                throw error
-            }
+            let valid = try groth16Verify(
+                proof: proof.proof.data(using: .utf8)!,
+                inputs: proof.publicSignals.data(using: .utf8)!,
+                verificationKey: circuitId.verificationKey
+            )
             
             XCTAssertTrue(valid, "Proof is invalid for " + circuitId.rawValue)
-            
-            NSLog("Buffer prover test passed for: " + circuitId.rawValue)
+        } catch {
+            NSLog("Path prover test failed for: " + circuitId.rawValue + " proof and inputs:")
+            throw error
         }
-    }
-    
-    func testSingleCircuit() throws {
-        let circuitId = CircuitId.sigonchain
         
-        let witness = try calculateWitness(
-            inputs: circuitId.inputs,
-            graph: circuitId.wcdGraph
-        )
-        
-        let proof = try groth16ProveWithZKeyFilePath(
-            zkeyPath: circuitId.zkeyPath,
-            witness: witness
-        )
-        NSLog(proof.proof)
-        NSLog(proof.publicSignals)
-        
-        XCTAssertTrue(!proof.proof.isEmpty, "Proof is empty for " + circuitId.rawValue)
-        XCTAssertTrue(!proof.publicSignals.isEmpty, "Public signals are empty for " + circuitId.rawValue)
-        
-        let valid = try groth16Verify(
-            proof: proof.proof.data(using: .utf8)!,
-            inputs: proof.publicSignals.data(using: .utf8)!,
-            verificationKey: circuitId.verificationKey
-        )
-        
-        XCTAssertTrue(valid, "Proof is invalid for " + circuitId.rawValue)
+        NSLog("Test passed for: " + circuitId.rawValue)
     }
 }
 

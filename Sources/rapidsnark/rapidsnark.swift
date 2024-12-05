@@ -141,9 +141,9 @@ public func groth16Verify(
     verificationKey: Data,
     errorBufferSize: Int = defaultErrorBufferSize
 ) throws -> Bool {
-    let proofBuf = NSData(data: proof).bytes
-    let inputsBuf = NSData(data: inputs).bytes
-    let verificationKeyBuf = NSData(data: verificationKey).bytes
+    let proofBuf = proof.nullTerminatedBytes
+    let inputsBuf = inputs.nullTerminatedBytes
+    let verificationKeyBuf = verificationKey.nullTerminatedBytes
     
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
     
@@ -305,7 +305,7 @@ public enum RapidsnarkVerifierError : RapidsnarkError {
             return message
         }
     }
-
+    
     public var errorCode: Int {
         switch self {
         case .error:
@@ -318,7 +318,7 @@ public enum RapidsnarkVerifierError : RapidsnarkError {
 
 public class RapidsnarkUnknownStatusError : RapidsnarkError {
     public let message: String
-
+    
     init(message: String) {
         self.message = message
     }
@@ -327,3 +327,18 @@ public class RapidsnarkUnknownStatusError : RapidsnarkError {
         return -1
     }
 }
+
+
+extension Data {
+    var nullTerminatedBytes: UnsafeRawPointer {
+        get {
+            var data = NSMutableData(data: self)
+            
+            if data.firstIndex(of: 0) == nil {
+                data.append(Data([0]))
+            }
+            return data.bytes
+        }
+    }
+}
+
