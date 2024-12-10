@@ -1,13 +1,13 @@
 {
-  "originHash" : "2cdf81e36a9ed39352801514e0e64ac4e71dd8ce01293e9c1326c730fc5c6f18",
+  "originHash" : "2e0396fd4c96d67b38e1bbfc2cf8b5232c8399e6b11ecb7b3e424621ed6799eb",
   "pins" : [
     {
       "identity" : "circom-witnesscalc-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/iden3/circom-witnesscalc-swift.git",
       "state" : {
-        "revision" : "5406f96e80584ba0ab633806163515a77e78806e",
-        "version" : "0.0.1-alpha.2"
+        "branch" : "main",
+        "revision" : "22971fa1c521d4789a104bd6750634639ca39ab1"
       }
     },
     {

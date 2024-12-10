@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/weichsel/ZIPFoundation.git", .upToNextMajor(from: "0.9.0")),
-        .package(url: "https://github.com/iden3/circom-witnesscalc-swift.git", .upToNextMajor(from: "0.0.1-alpha.2")),
+        .package(url: "https://github.com/iden3/circom-witnesscalc-swift.git", branch: "main"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
