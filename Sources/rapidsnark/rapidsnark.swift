@@ -38,21 +38,21 @@ public func groth16Prove(
     if let publicBufferSize {
         currentPublicBufferSize = publicBufferSize;
     } else {
-        currentPublicBufferSize = try groth16PublicSizeForZkeyFile(zkeyPath: zkeyPath, errorBufferSize: errorBufferSize);
+        currentPublicBufferSize = try groth16PublicBufferSize(zkeyPath: zkeyPath, errorBufferSize: errorBufferSize);
     }
 
     var proofBuffer = Array<CChar>(repeating: 0, count: proofBufferSize);
     var publicBuffer = Array<CChar>(repeating: 0, count: currentPublicBufferSize)
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
 
-    var proofBufferSizeUInt = UInt(proofBufferSize)
-    var currentPublicBufferSizeUInt = UInt(currentPublicBufferSize)
-    let errorBufferSizeUInt = UInt(errorBufferSize)
+    var proofBufferSizeUInt = UInt64(proofBufferSize)
+    var currentPublicBufferSizeUInt = UInt64(currentPublicBufferSize)
+    let errorBufferSizeUInt = UInt64(errorBufferSize)
 
     // Call the rapidsnark C++ library function to perform the Groth16 proof
     let statusCode = groth16_prover_zkey_file(
         zkeyPath,
-        witnessBuf, UInt(witness.count),
+        witnessBuf, UInt64(witness.count),
         &proofBuffer, &proofBufferSizeUInt,
         &publicBuffer, &currentPublicBufferSizeUInt,
         &errorMessageBuffer, errorBufferSizeUInt
@@ -129,17 +129,17 @@ public func groth16PublicBufferSize(
 ) throws -> Int {
     var errorMessageBuffer: [CChar] = Array(repeating: 0, count: errorBufferSize)
 
-    var size = 0
+    var size = UInt64(0)
 
     let statusCode = groth16_public_size_for_zkey_file(
         zkeyPath,
         &size,
         &errorMessageBuffer,
-        UInt(errorBufferSize)
+        UInt64(errorBufferSize)
     );
 
     if (statusCode == PROVER_OK) {
-        return size
+        return Int(size)
     }
 
     throw RapidsnarkProverError.error(message: String(cString: errorMessageBuffer))

@@ -48,14 +48,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func generateProofClick(_ sender: Any) {
-        generateProof(buffer:false)
+        generateProof()
     }
     
-    @IBAction func generateBufferProofClick(_ sender: Any) {
-        generateProof(buffer:true)
-    }
-    
-    func generateProof(buffer: Bool){
+    func generateProof(){
         do {
             let zkeyPath = zkeyPath();
             let witness = try calculateWitness(
@@ -65,13 +61,7 @@ class ViewController: UIViewController {
             
             let startTime = Date()
             
-            let proof, inputs: String
-            if buffer {
-                let zkey = FileManager.default.contents(atPath: zkeyPath)!;
-                (proof, inputs) = try groth16Prove(zkey: zkey, witness: witness);
-            } else {
-                (proof, inputs) = try groth16ProveWithZKeyFilePath(zkeyPath: zkeyPath, witness: witness);
-            }
+            let proof, inputs = try groth16Prove(zkeyPath: zkeyPath, witness: witness);
             
             let endTime = Date()
             let diffProofTime = endTime.timeIntervalSince(startTime)
@@ -84,9 +74,9 @@ class ViewController: UIViewController {
             let endVerificatonTime = Date()
             let diffVerificationTime = endVerificatonTime.timeIntervalSince(startVerificationTime)
             
-            let bufferSize = try groth16PublicSizeForZkeyFile(zkeyPath: zkeyPath)
+            let bufferSize = try groth16PublicBufferSize(zkeyPath: zkeyPath)
             print("Buffer size: \(bufferSize)")
-
+            
             print("Verification result: \(isValid)")
             displayExecutionResult(proof, inputs, diffProofTime, diffVerificationTime)
         } catch {
