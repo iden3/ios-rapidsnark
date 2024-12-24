@@ -23,7 +23,7 @@ variant_for_slice()
   "Rapidsnark.xcframework/ios-arm64_arm64e_x86_64-simulator")
     echo "simulator"
     ;;
-  "Rapidsnark.xcframework/macos-arm64_arm64e")
+  "Rapidsnark.xcframework/macos-arm64")
     echo ""
     ;;
   esac
@@ -38,8 +38,8 @@ archs_for_slice()
   "Rapidsnark.xcframework/ios-arm64_arm64e_x86_64-simulator")
     echo "arm64 arm64e x86_64"
     ;;
-  "Rapidsnark.xcframework/macos-arm64_arm64e")
-    echo "arm64 arm64e"
+  "Rapidsnark.xcframework/macos-arm64")
+    echo "arm64"
     ;;
   esac
 }

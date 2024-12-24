@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             
             let startTime = Date()
             
-            let proof, inputs = try groth16Prove(zkeyPath: zkeyPath, witness: witness);
+            let (proof, inputs) = try groth16Prove(zkeyPath: zkeyPath, witness: witness);
             
             let endTime = Date()
             let diffProofTime = endTime.timeIntervalSince(startTime)
