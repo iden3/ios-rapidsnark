@@ -3,16 +3,22 @@
 
 Pod::Spec.new do |s|
   s.name             = 'rapidsnark'
-  s.version          = '0.0.1-alpha.6'
+  s.version          = '0.0.1-beta.1'
   s.summary          = 'Swift wrapper for the rapidsnark proof generation library.'
   s.description      = <<-DESC
 This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the
 generation of proofs for specified circuits within an iOS and macOS environment.
                        DESC
   s.homepage         = 'https://github.com/iden3/ios-rapidsnark'
-  s.license          = { :type => 'LGPL-3', :file => 'COPYING' }
-  s.author           = { 'Yaroslav Moria' => 'morya.yaroslav@gmail.com' }
-  s.source           = { :git => 'https://github.com/iden3/ios-rapidsnark.git', :tag => s.version.to_s }
+  s.license          = {
+      :type => 'MIT AND Apache-2.0',
+      :files => ['LICENSE-MIT', 'LICENSE-APACHE']
+    }
+  s.authors          = {
+      'Yaroslav Moria' => 'morya.yaroslav@gmail.com',
+      'Dmytro Sukhyi' => 'dmytro.sukhiy@gmail.com'
+    }
+  s.source           = { :git => '../', :tag => s.version.to_s }
 
   s.ios.deployment_target = '12.0'
   s.osx.deployment_target = '10.14'
