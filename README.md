@@ -30,7 +30,7 @@ or add it to your project SPM dependencies in XCode.
 
 ## Usage
 
-#### groth16ProveWithZKeyFilePath
+#### groth16Prove
 
 Generates a proof and public signals using a .zkey file path and witness data buffer.
 
@@ -41,7 +41,7 @@ import rapidsnark
 
 let zkeyPath = "path/to/zkey"
 let witness = Data(/* witness data */)
-let (proof, inputs) = try groth16ProveWithZKeyFilePath(zkeyPath: zkeyPath, witness: witness)
+let (proof, inputs) = try groth16Prove(zkeyPath: zkeyPath, witness: witness)
 
 ```
 
@@ -54,23 +54,8 @@ Verifies proof and public signals against verification key.
 let isValid = try groth16Verify(proof: proof, inputs: publicSignals, verificationKey: verificationKey)
 ```
 
-#### groth16Prove
 
-Function that takes zkey and witness files encoded as base64.
-
-`proof` and `publicSignals` are base64 encoded strings.
-
-> Large circuits might cause OOM. Use with caution.
-
-```Swift
-import rapidsnark
-
-// ...
-
-let (proof, inputs) = try groth16Prove(zkey: zkeyFile, witness: witness)
-```
-
-#### groth16PublicSizeForZkeyFile
+#### groth16PublicBufferSize
 
 Calculates public buffer size for specified zkey.
 
@@ -79,18 +64,18 @@ import rapidsnark
 
 // ...
 
-let bufferSize = try groth16PublicSizeForZkeyFile(zkeyPath: zkeyPath)
+let bufferSize = try groth16PublicBufferSize(zkeyPath: zkeyPath)
 ```
 
 ### Public buffer size
 
-Both `groth16Prove` and `groth16ProveWithZKeyFilePath` has an optional `proofBufferSize`, `publicBufferSize` and `errorBufferSize` parameters.
+`groth16Prove` has an optional `proofBufferSize`, `publicBufferSize` and `errorBufferSize` parameters.
 If `publicBufferSize` is too small it will be calculated automatically by library.
 
 These parameters are used to set the size of the buffers used to store the proof, public signals and error.
 
 If you have embedded circuit in the app, it is recommended to calculate the size of the public buffer once and reuse it.
-To calculate the size of public buffer call `groth16PublicSizeForZkeyFile`.
+To calculate the size of public buffer call `groth16PublicBufferSize`.
 
 ## Example
 
@@ -99,4 +84,11 @@ Then open the `rapidsnark.xcworkspace` file in XCode and run it on iOS device or
 
 ## License
 
-ios-rapidsnark is part of the iden3 project copyright 2021 0KIMS association and published with LGPL-3 license. Please check the [COPYING](./COPYING) file for more details.
+The project is licensed under either of
+
+- [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) ([`LICENSE-APACHE`](LICENSE-APACHE))
+- [MIT license](https://opensource.org/licenses/MIT) ([`LICENSE-MIT`](LICENSE-MIT))
+
+at your option.
+
+- **Rapidsnark**  is licensed under the [LGPL-3](https://github.com/iden3/rapidsnark/blob/main/COPYING)
