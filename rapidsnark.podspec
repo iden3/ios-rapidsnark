@@ -26,9 +26,11 @@ generation of proofs for specified circuits within an iOS and macOS environment.
   s.swift_versions = ['5']
 
   s.pod_target_xcconfig = {
+    'ONLY_ACTIVE_ARCH' => 'YES',
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
   }
   s.user_target_xcconfig = {
+    'ONLY_ACTIVE_ARCH' => 'YES',
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
   }
 
