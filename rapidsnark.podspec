@@ -3,7 +3,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'rapidsnark'
-  s.version          = '0.0.1-beta.1'
+  s.version          = '0.0.1-beta.2'
   s.summary          = 'Swift wrapper for the rapidsnark proof generation library.'
   s.description      = <<-DESC
 This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the
@@ -26,11 +26,9 @@ generation of proofs for specified circuits within an iOS and macOS environment.
   s.swift_versions = ['5']
 
   s.pod_target_xcconfig = {
-    'ONLY_ACTIVE_ARCH' => 'YES',
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
   }
   s.user_target_xcconfig = {
-    'ONLY_ACTIVE_ARCH' => 'YES',
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
   }
 
