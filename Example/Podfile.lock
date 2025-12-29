@@ -1,17 +1,17 @@
 PODS:
-  - CircomWitnesscalc (0.0.1-alpha.2):
-    - CircomWitnesscalc/CircomWitnesscalc (= 0.0.1-alpha.2)
-  - CircomWitnesscalc/C (0.0.1-alpha.2)
-  - CircomWitnesscalc/CircomWitnesscalc (0.0.1-alpha.2):
-    - CircomWitnesscalc/C
-  - rapidsnark (0.0.1-alpha.6):
-    - rapidsnark/rapidsnark (= 0.0.1-alpha.6)
-  - rapidsnark/rapidsnark (0.0.1-alpha.6):
+  - CircomWitnesscalc (0.0.1-alpha.3):
+    - CircomWitnesscalc/CircomWitnesscalc (= 0.0.1-alpha.3)
+  - CircomWitnesscalc/CircomWitnesscalc (0.0.1-alpha.3):
+    - "CircomWitnesscalc/сircomWitnesscalcС"
+  - "CircomWitnesscalc/сircomWitnesscalcС (0.0.1-alpha.3)"
+  - rapidsnark (0.0.1-beta.2):
+    - rapidsnark/rapidsnark (= 0.0.1-beta.2)
+  - rapidsnark/rapidsnark (0.0.1-beta.2):
     - rapidsnark/rapidsnarkC
-  - rapidsnark/rapidsnarkC (0.0.1-alpha.6)
+  - rapidsnark/rapidsnarkC (0.0.1-beta.2)
 
 DEPENDENCIES:
-  - CircomWitnesscalc (= 0.0.1-alpha.2)
+  - CircomWitnesscalc (= 0.0.1-alpha.3)
   - rapidsnark (from `../`)
 
 SPEC REPOS:
@@ -23,9 +23,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CircomWitnesscalc: 77ebed71f7c5001e1a9e45c406904e9417bbe68b
-  rapidsnark: 93e8caba50f35f4d4205fb17dafec72bd772e82b
+  CircomWitnesscalc: 194e88897842f88b39bc8670dec553f4928d1bf8
+  rapidsnark: 5288ecbe8e07f500e0b72bb8412f2a64f16897b4
 
-PODFILE CHECKSUM: b1d629a73a229d739cadc8999316fcabe7f54d97
+PODFILE CHECKSUM: e937ac1675caccba0856a3eda9e18917d19ff75f
 
 COCOAPODS: 1.16.2

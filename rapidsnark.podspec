@@ -3,7 +3,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'rapidsnark'
-  s.version          = '0.0.1-beta.2'
+  s.version          = '0.0.1-beta.3'
   s.summary          = 'Swift wrapper for the rapidsnark proof generation library.'
   s.description      = <<-DESC
 This library is Swift wrapper for the [Rapidsnark](https://github.com/iden3/rapidsnark). It enables the

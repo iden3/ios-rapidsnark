@@ -115,8 +115,11 @@ class ViewController: UIViewController, UIDocumentPickerDelegate {
             print("Proof: \(proof)")
             print("Inputs: \(inputs)")
             print("Execution Time: \(executionTime) seconds")
-        } catch {
-            proofLabel.text = "Error while calculating proof: " + String(describing: error);
+        } catch let error as CircomWitnesscalc.WitnessCalcError {
+            proofLabel.text = "Error while calculating proof: " + error.message;
+            print(error)
+        } catch let error {
+            proofLabel.text = "Error while calculating proof: " + error.localizedDescription;
             print(error)
         }
     }
